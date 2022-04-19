@@ -14,19 +14,19 @@ mp_drawing = mp.solutions.drawing_utils
 
 modelF= keras.models.load_model('rec_0.h5')
 
-DATA_PATH = os.path.join('dynamic_dataset') 
+# DATA_PATH = os.path.join('dynamic_dataset') 
 actions = np.array(['hello', 'thanks', 'i love you', 'stop', 'please', 'walk', 'argue', 'yes', 'see', 'good'])
 # 40 videos
 no_sequences = 80
 # 30 frames
 sequence_length = 30
 
-for action in actions: 
-    for sequence in range(no_sequences):
-        try: 
-            os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
-        except:
-            pass
+# for action in actions: 
+#     for sequence in range(no_sequences):
+#         try: 
+#             os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
+#         except:
+#             pass
 
 def mediapipe_detection(image, model):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
