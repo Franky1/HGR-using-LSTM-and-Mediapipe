@@ -114,6 +114,7 @@ app_mode = st.sidebar.selectbox('Select Page', ['Home', 'Demo'])
 
 if app_mode == 'Home':
     st.title('About Our Project')
+    st.markdown("In the field of Human Computer Interaction (HCI), a hand gesture recognition system provides an innovative approach towards nonverbal communication with your machines. The objective is to overcome the communication barrier between the people with disabilities and those who do not understand sign language. The goal of this research is to present and develop a technique for hand gesture recognition that incorporates MediaPipe for extracting hand landmarks and LSTM to train and recognize the gesture. The setup comprises a web camera that captures the user's gesture and feeds it into the proposed model as an input. The proposed model will be implemented in following phases: Data collection, preprocessing training and testing of the proposed neural network, at last testing in real time. The Gesture recognition model is trained on a self-made dynamic dataset of certain everyday gestures. The trained model recognizes the gesture accurately and shows the gesture made in the form of text onto the screen.")
 elif app_mode == 'Demo':
     st.header('Real-Time Hand Gesture Recognition Using Mediapipe & LSTM')
     st.markdown('To start detecting your ASL gesture click on the "START" button')
