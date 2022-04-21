@@ -119,7 +119,7 @@ elif app_mode == 'Demo':
     st.markdown('To start detecting your ASL gesture click on the "START" button')
     ctx = webrtc_streamer(
     key="example",
-    video_processor_factory=VideoProcessor,
+    video_processor_factory=OpenCamera,
     rtc_configuration={ # Add this line
         "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
     }
