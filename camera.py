@@ -117,5 +117,10 @@ if app_mode == 'Home':
 elif app_mode == 'Demo':
     st.header('Real-Time Hand Gesture Recognition Using Mediapipe & LSTM')
     st.markdown('To start detecting your ASL gesture click on the "START" button')
-    webrtc_streamer(key = 'key', video_processor_factory = OpenCamera, media_stream_constraints={"video": True, "audio": False},
-            async_processing=True,)
+    ctx = webrtc_streamer(
+    key="example",
+    video_processor_factory=VideoProcessor,
+    rtc_configuration={ # Add this line
+        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+    }
+)
