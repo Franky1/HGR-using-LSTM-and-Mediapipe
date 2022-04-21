@@ -122,5 +122,5 @@ elif app_mode == 'Demo':
     video_processor_factory=OpenCamera,
     rtc_configuration={ # Add this line
         "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
-    }, media_stream_constraints={"video": True, "audio": False, async_processing=True
+    }, media_stream_constraints={"video": True, "audio": False,}, async_processing=True
 )
