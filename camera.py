@@ -27,7 +27,7 @@ sequence_length = 30
 #             os.makedirs(os.path.join(DATA_PATH, action, str(sequence)))
 #         except:
 #             pass
-
+@st.cache
 def mediapipe_detection(image, model):
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
     image.flags.writeable = False                 
@@ -36,7 +36,7 @@ def mediapipe_detection(image, model):
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
     return image, results
 
-
+@st.cache
 def draw_styled_landmarks(image, results):
 
     # left hand connections
@@ -49,7 +49,7 @@ def draw_styled_landmarks(image, results):
                             mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=4), 
                             mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2)
                             ) 
-
+@st.cache
 def extract_keypoints(results):
     key1 = np.array([[res.x, res.y, res.z, res.visibility] for res in results.pose_landmarks.landmark]).flatten() if results.pose_landmarks else np.zeros(33*4)
     key2 = np.array([[res.x, res.y, res.z] for res in results.face_landmarks.landmark]).flatten() if results.face_landmarks else np.zeros(468*3)
@@ -58,6 +58,7 @@ def extract_keypoints(results):
     return np.concatenate([key1, key2, lh, rh])
 
 colors = [(245,117,16), (117,245,16), (16,117,245),(16,17,245),(16,117,24),(17,25,160),(11,45,116),(170,205,165), (224, 32, 28), (22,142,100)]
+@st.cache
 def prob_viz(res, actions, input_frame, colors):
     output_frame = input_frame.copy()
     for num, prob in enumerate(res):
