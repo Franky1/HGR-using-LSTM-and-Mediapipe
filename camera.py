@@ -17,8 +17,7 @@ modelF= keras.models.load_model('rec_0.h5')
 
 
 
-
-
+@st.cache
 class OpenCamera (VideoProcessorBase):
     def __init__(self) -> None :
         self.sequence = []
