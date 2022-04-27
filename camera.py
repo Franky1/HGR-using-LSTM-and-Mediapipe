@@ -34,7 +34,7 @@ class OpenCamera (VideoProcessorBase):
         self.results = model.process(image)                
         self.image.flags.writeable = True                   
         self.image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-        return self.image, self.results
+        return image, self.results
 
 
     def draw_styled_landmarks(self,image, results):
