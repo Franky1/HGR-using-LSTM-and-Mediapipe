@@ -35,7 +35,7 @@ EXPOSE 8501
 
 COPY . .
 
-CMD ["streamlit", "run", "app.py"]
+CMD ["streamlit", "run", "camera.py"]
 
 # docker build --progress=plain --tag hgr:latest .
 # docker run -ti -p 8501:8501 --rm hgr:latest /bin/bash
